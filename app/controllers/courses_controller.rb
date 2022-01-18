@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
+  
 
   # GET /courses or /courses.json
   def index
@@ -31,11 +32,12 @@ class CoursesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
   # PATCH/PUT /courses/1 or /courses/1.json
-  def update
+  def updaterake
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to course_url(@course), notice: "Course was successfully updated." }
